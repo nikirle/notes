@@ -27,6 +27,11 @@
 
             <!-- Page Content -->
             <main>
+                @session('message')
+                    <div class="success-message">
+                        {{session('message')}}
+                    </div>
+                @endsession
                 {{ $slot }}
             </main>
         </div>
