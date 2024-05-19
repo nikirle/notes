@@ -23,5 +23,6 @@
             @endforeach
                
         </div>
+        {{$notes->links()}}
     </div>
 </x-app-layout>
