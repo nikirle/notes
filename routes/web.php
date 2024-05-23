@@ -4,10 +4,14 @@ use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+// Route::redirect('/','/note')->name('dashboard'); 
+
+Route::get('/', function() {
     return view('welcome');
 });
 
+Route::middleware(['auth','verified'])->group(function(){
+Route::get('/dahsboard', [NoteController::class,'index'])->name('dashboard');
 // Route::get('/note', [NoteController::class,'index'])->name('note.index');;
 // Route::get('/note/create', [NoteController::class,'create'])->name('note.create');
 // Route::post('/note/store', [NoteController::class,'store'])->name('note.store');
@@ -18,12 +22,7 @@ Route::get('/', function () {
 
 Route::resource('note', NoteController::class);
 
-
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
