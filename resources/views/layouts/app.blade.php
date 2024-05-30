@@ -7,10 +7,11 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-    
-
+        <link rel="stylesheet" href="{{asset('build/assets/app-CVA3AdvT.css')}}">
+        <script src="{{asset('build/assets/app-CrG2wnyX.js')}}"></script>
+        
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
